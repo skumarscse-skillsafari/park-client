@@ -2,9 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavComp = () => {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar bg="primary" data-bs-theme="primary">
@@ -20,9 +22,16 @@ const NavComp = () => {
             <Link className="btn btn-primary me-5" to="/">
               Posts
             </Link>
-            <Link className="btn btn-primary me-5" to="/create">
+            <div
+              className="btn btn-primary me-5"
+              onClick={() =>
+                token
+                  ? navigate("/create")
+                  : alert("User must logged in to create post")
+              }
+            >
               Create Post
-            </Link>
+            </div>
 
             {token ? (
               <Link className="btn btn-primary me-5" to="/profile">
