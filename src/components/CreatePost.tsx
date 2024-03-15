@@ -33,7 +33,7 @@ const CreatePost = () => {
     const userId = jwt.id;
     // console.log(userId);
     axios
-      .post(`baseURL/posts/${userId}`, post, {
+      .post(`${baseURL}/posts/${userId}`, post, {
         headers: {
           "x-access-token": JSON.parse(token),
         },
