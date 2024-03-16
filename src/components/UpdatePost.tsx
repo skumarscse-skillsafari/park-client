@@ -49,7 +49,7 @@ const UpdatePost = () => {
         alert(res.data.message);
         navigate("/", { replace: true });
       })
-      .catch((error) => console.log(error.response.data.message._message));
+      .catch((error) => alert(error.response.data.message));
   };
   return (
     <Container>
